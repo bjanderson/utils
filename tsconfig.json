@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["./src/*"]
+    },
+    "declaration": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "outDir": "./dist",
+    "target": "es5",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "types": [
+      "jest"
+    ]
+  },
+  "exclude": [
+    "coverage",
+    "dist",
+    "doc",
+    "jest",
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

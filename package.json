@@ -1,0 +1,43 @@
+{
+  "name": "@lernato/common",
+  "version": "2.0.2",
+  "license": "MIT",
+  "description": "Angular utilities for writing code the @lernato way.",
+  "author": "BJ Anderson",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjanderson/lernato-common.git"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc && npm run fix-ts-paths",
+    "fix-ts-paths": "node scripts/fix-ts-paths.js",
+    "doc": "typedoc --out ../docs/common src/**/*.ts",
+    "lint": "tslint --project tsconfig.json 'src/**/*.ts'",
+    "prepush": "npm run build",
+    "push": "npm publish --access public",
+    "push:major": "npm version major --no-git-tag-version && npm run push",
+    "push:minor": "npm version minor --no-git-tag-version && npm run push",
+    "push:patch": "npm version patch --no-git-tag-version && npm run push",
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "test:watch": "jest --clearCache && jest --coverage --watch"
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.15",
+    "jest": "24.8.0",
+    "rimraf": "2.6.3",
+    "ts-jest": "24.0.2",
+    "tslint": "5.18.0",
+    "typedoc": "0.14.2",
+    "typescript": "3.4.5"
+  },
+  "files": [
+    "dist/",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ]
+}
