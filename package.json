@@ -1,6 +1,6 @@
 {
   "name": "@lernato/common",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "license": "MIT",
   "description": "Angular utilities for writing code the @lernato way.",
   "author": "Lernato, LLC",
@@ -26,18 +26,21 @@
     "test:watch": "jest --clearCache && jest --coverage --watch"
   },
   "devDependencies": {
-    "@types/jest": "24.0.15",
-    "jest": "24.8.0",
-    "rimraf": "2.6.3",
+    "@types/jest": "24.0.18",
+    "jest": "24.9.0",
+    "rimraf": "3.0.0",
     "ts-jest": "24.0.2",
     "tslint": "5.18.0",
-    "typedoc": "0.14.2",
-    "typescript": "3.4.5"
+    "typedoc": "0.15.0",
+    "typescript": "3.5.3"
   },
   "files": [
     "dist/",
     "package.json",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "dependencies": {
+    "inquirer": "6.5.1"
+  }
 }
