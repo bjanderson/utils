@@ -1,20 +1,23 @@
-export const defaultArray: any[] = [];
-export const defaultBoolean = false;
-export const defaultNumber = 0;
-export const defaultObject: any = {};
-export const defaultString = '';
+export const DEFAULT_ARRAY: any[] = [];
+export const DEFAULT_BOOLEAN = false;
+export const DEFAULT_NUMBER = 0;
+export const DEFAULT_OBJECT: any = {};
+export const DEFAULT_STRING = '';
+export const NOOP = () => undefined;
 
 /**
  * Get a boolean from any given input.
  *
  * Optionally, choose the default value if the input value is undefined or null.
  */
-export function getBoolean(value: any, defaultValue: boolean = defaultBoolean): boolean {
+export function getBoolean(value: any, defaultValue: boolean = DEFAULT_BOOLEAN): boolean {
+  let bool;
   if (value === 'false') {
-    value = false;
+    bool = false;
+  } else {
+    bool = value == null ? defaultValue : !!value;
   }
-  value = value == null ? defaultValue : !!value;
-  return value;
+  return bool;
 }
 
 /**
@@ -22,7 +25,7 @@ export function getBoolean(value: any, defaultValue: boolean = defaultBoolean): 
  *
  * Optionally, choose the default value if the input value is undefined or null.
  */
-export function getNumber(value: any, defaultValue: number | null = defaultNumber): number | null {
+export function getNumber(value: any, defaultValue: number | null = DEFAULT_NUMBER): number | null {
   let num = value == null ? defaultValue : Number(value).valueOf();
   if (num == null || isNaN(num)) {
     num = defaultValue;
@@ -35,12 +38,12 @@ export function getNumber(value: any, defaultValue: number | null = defaultNumbe
  *
  * Optionally, choose the default value if the input value is undefined or null.
  */
-export function getObject(value: any, defaultValue: any = defaultObject): any {
-  value = getValueOrDefault(value, defaultValue);
+export function getObject(value: any, defaultValue: any = DEFAULT_OBJECT): any {
+  let obj = getValueOrDefault(value, defaultValue);
   if (value != null && value.toString() !== '[object Object]') {
-    value = {value};
+    obj = { value };
   }
-  return value;
+  return obj;
 }
 
 /**
@@ -48,7 +51,7 @@ export function getObject(value: any, defaultValue: any = defaultObject): any {
  *
  * Optionally, choose the default value if the input value is undefined or null.
  */
-export function getString(value: any, defaultValue: string | null = defaultString): string | null {
+export function getString(value: any, defaultValue: string | null = DEFAULT_STRING): string | null {
   let str = getValueOrDefault(value, defaultValue);
 
   if (Array.isArray(value) || isFunction(value)) {
@@ -93,6 +96,5 @@ export function isFunction(value: any): boolean {
  * Check if a value is defined with a meaningful value.
  */
 export function isNullOrEmpty(value: any): boolean {
-  return value == null ||
-    (value.length != null && value.length === 0);
+  return value == null || (value.length != null && value.length === 0);
 }

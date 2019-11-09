@@ -1,8 +1,8 @@
 import { hasPropertyOf, isInstanceOf, newIfDefined } from './model.utils';
 
 class TestModel {
-  test: string;
-  x: string;
+  public test: string;
+  public x: string;
   constructor() {
     this.test = 'test';
     this.x = 'test';
@@ -10,7 +10,6 @@ class TestModel {
 }
 
 describe('model.utils', () => {
-
   describe('hasPropertyOf(clazz, obj)', () => {
     it('is a function', () => {
       expect(typeof hasPropertyOf).toEqual('function');
@@ -31,14 +30,14 @@ describe('model.utils', () => {
     });
 
     it('returns false when obj does not have any properties in common with clazz', () => {
-      const obj = {name: 'name'};
+      const obj = { name: 'name' };
       const expected = false;
       const result = hasPropertyOf(TestModel, obj);
       expect(result).toEqual(expected);
     });
 
     it('returns true when obj has properties in common with clazz', () => {
-      const obj = {test: 'test'};
+      const obj = { test: 'test' };
       const expected = true;
       const result = hasPropertyOf(TestModel, obj);
       expect(result).toEqual(expected);
@@ -72,14 +71,14 @@ describe('model.utils', () => {
     });
 
     it('returns false when obj does not have any properties in common with clazz', () => {
-      const obj = {name: 'name'};
+      const obj = { name: 'name' };
       const expected = false;
       const result = isInstanceOf(TestModel, obj);
       expect(result).toEqual(expected);
     });
 
     it('returns false when obj does not have all properties in common with clazz', () => {
-      const obj = {test: 'test'};
+      const obj = { test: 'test' };
       const expected = false;
       const result = isInstanceOf(TestModel, obj);
       expect(result).toEqual(expected);

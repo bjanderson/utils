@@ -10,20 +10,8 @@
     "module": "commonjs",
     "outDir": "./dist",
     "target": "es5",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "types": [
-      "jest"
-    ]
+    "lib": ["es2018", "dom"],
+    "types": ["jest"]
   },
-  "exclude": [
-    "coverage",
-    "dist",
-    "doc",
-    "jest",
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["coverage", "dist", "doc", "jest", "node_modules", "**/*.spec.ts"]
 }

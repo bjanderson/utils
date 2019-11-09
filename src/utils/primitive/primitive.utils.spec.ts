@@ -1,33 +1,45 @@
-import { defaultBoolean, defaultNumber, defaultObject, defaultString, getBoolean, getNumber, getObject, getString, getValueOrDefault, getValueOrNull, isFunction, isNullOrEmpty } from './primitive.utils';
+import {
+  DEFAULT_BOOLEAN,
+  DEFAULT_NUMBER,
+  DEFAULT_OBJECT,
+  DEFAULT_STRING,
+  getBoolean,
+  getNumber,
+  getObject,
+  getString,
+  getValueOrDefault,
+  getValueOrNull,
+  isFunction,
+  isNullOrEmpty,
+} from './primitive.utils';
 
 describe('primitive.utils', () => {
-
   describe('getBoolean(value, defaultValue)', () => {
     it('is a function', () => {
       expect(typeof getBoolean).toEqual('function');
     });
 
-    it('returns the defaultBoolean when the input is undefined', () => {
-      const expected = defaultBoolean;
+    it('returns the DEFAULT_BOOLEAN when the input is undefined', () => {
+      const expected = DEFAULT_BOOLEAN;
       const result = getBoolean(undefined);
       expect(result).toEqual(expected);
     });
 
-    it('returns the defaultBoolean when the input is null', () => {
-      const expected = defaultBoolean;
+    it('returns the DEFAULT_BOOLEAN when the input is null', () => {
+      const expected = DEFAULT_BOOLEAN;
       const result = getBoolean(null);
       expect(result).toEqual(expected);
     });
 
     it('returns the defaultValue when the input is undefined', () => {
-      const expected = !defaultBoolean;
-      const result = getBoolean(undefined, !defaultBoolean);
+      const expected = !DEFAULT_BOOLEAN;
+      const result = getBoolean(undefined, !DEFAULT_BOOLEAN);
       expect(result).toEqual(expected);
     });
 
     it('returns the defaultValue when the input is null', () => {
-      const expected = !defaultBoolean;
-      const result = getBoolean(null, !defaultBoolean);
+      const expected = !DEFAULT_BOOLEAN;
+      const result = getBoolean(null, !DEFAULT_BOOLEAN);
       expect(result).toEqual(expected);
     });
 
@@ -85,14 +97,14 @@ describe('primitive.utils', () => {
       expect(typeof getNumber).toEqual('function');
     });
 
-    it('returns the defaultNumber when the input is undefined', () => {
-      const expected = defaultNumber;
+    it('returns the DEFAULT_NUMBER when the input is undefined', () => {
+      const expected = DEFAULT_NUMBER;
       const result = getNumber(undefined);
       expect(result).toEqual(expected);
     });
 
-    it('returns the defaultNumber when the input is null', () => {
-      const expected = defaultNumber;
+    it('returns the DEFAULT_NUMBER when the input is null', () => {
+      const expected = DEFAULT_NUMBER;
       const result = getNumber(null);
       expect(result).toEqual(expected);
     });
@@ -120,8 +132,8 @@ describe('primitive.utils', () => {
       expect(result).toEqual(expected);
     });
 
-    it('returns the defaultNumber when the input is a NaN string', () => {
-      const expected = defaultNumber;
+    it('returns the DEFAULT_NUMBER when the input is a NaN string', () => {
+      const expected = DEFAULT_NUMBER;
       const result = getNumber('abc');
       expect(result).toEqual(expected);
     });
@@ -138,14 +150,14 @@ describe('primitive.utils', () => {
       expect(typeof getObject).toEqual('function');
     });
 
-    it('returns the defaultObject when the input is undefined', () => {
-      const expected = defaultObject;
+    it('returns the DEFAULT_OBJECT when the input is undefined', () => {
+      const expected = DEFAULT_OBJECT;
       const result = getObject(undefined);
       expect(result).toEqual(expected);
     });
 
-    it('returns the defaultObject when the input is null', () => {
-      const expected = defaultObject;
+    it('returns the DEFAULT_OBJECT when the input is null', () => {
+      const expected = DEFAULT_OBJECT;
       const result = getObject(null);
       expect(result).toEqual(expected);
     });
@@ -156,37 +168,37 @@ describe('primitive.utils', () => {
     });
 
     it('returns the defaultValue', () => {
-      const expected = {test: 'test'};
-      const result = getObject(undefined, {test: 'test'});
+      const expected = { test: 'test' };
+      const result = getObject(undefined, { test: 'test' });
       expect(result).toEqual(expected);
     });
 
     it('returns the given object', () => {
-      const expected = {test: 'test'};
-      const result = getObject({test: 'test'});
+      const expected = { test: 'test' };
+      const result = getObject({ test: 'test' });
       expect(result).toEqual(expected);
     });
 
     it('returns an object with the input string as a value of the returned object', () => {
-      const expected = {value: 'test'};
+      const expected = { value: 'test' };
       const result = getObject('test');
       expect(result).toEqual(expected);
     });
 
     it('returns an object with the input boolean as a value of the returned object', () => {
-      const expected = {value: true};
+      const expected = { value: true };
       const result = getObject(true);
       expect(result).toEqual(expected);
     });
 
     it('returns an object with the input number as a value of the returned object', () => {
-      const expected = {value: 5};
+      const expected = { value: 5 };
       const result = getObject(5);
       expect(result).toEqual(expected);
     });
 
     it('returns an object with the input array as a value of the returned object', () => {
-      const expected = {value: ['test 1', 'test 2']};
+      const expected = { value: ['test 1', 'test 2'] };
       const result = getObject(['test 1', 'test 2']);
       expect(result).toEqual(expected);
     });
@@ -197,14 +209,14 @@ describe('primitive.utils', () => {
       expect(typeof getString).toEqual('function');
     });
 
-    it('returns the defaultString when the input is undefined', () => {
-      const expected = defaultString;
+    it('returns the DEFAULT_STRING when the input is undefined', () => {
+      const expected = DEFAULT_STRING;
       const result = getString(undefined);
       expect(result).toEqual(expected);
     });
 
-    it('returns the defaultString when the value null', () => {
-      const expected = defaultString;
+    it('returns the DEFAULT_STRING when the value null', () => {
+      const expected = DEFAULT_STRING;
       const result = getString(null);
       expect(result).toEqual(expected);
     });
@@ -233,26 +245,26 @@ describe('primitive.utils', () => {
     });
 
     it('returns the defaultValue when the input is an object', () => {
-      const expected = defaultString;
+      const expected = DEFAULT_STRING;
       const result = getString({});
       expect(result).toEqual(expected);
     });
 
     it('returns the defaultValue when the input is an array', () => {
-      const expected = defaultString;
+      const expected = DEFAULT_STRING;
       const result = getString(['test 1', 'test 2']);
       expect(result).toEqual(expected);
     });
 
     it('returns the defaultValue when the input is a function', () => {
-      const expected = defaultString;
+      const expected = DEFAULT_STRING;
       const result = getString(() => 'test 1');
       expect(result).toEqual(expected);
     });
 
     it('returns the toString() result when the input specifies a custom toString function', () => {
       const input = {
-        toString: () => 'custom toString result'
+        toString: () => 'custom toString result',
       };
       const result = getString(input);
       expect(result).toEqual('custom toString result');
@@ -396,7 +408,7 @@ describe('primitive.utils', () => {
     });
 
     it('returns false when the input is an object', () => {
-      const result = isNullOrEmpty({a: 'test'});
+      const result = isNullOrEmpty({ a: 'test' });
       expect(result).toEqual(false);
     });
 

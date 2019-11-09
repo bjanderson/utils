@@ -6,8 +6,8 @@ import { getBoolean, getNumber, getString, getValueOrDefault } from '../primitiv
  *
  * If the input is a single object, it will be added to an array and returned.
  */
-export function getArray(objs: any): any[] {
-  objs = getValueOrDefault(objs, []);
+export function getArray(items: any): any[] {
+  const objs = getValueOrDefault(items, []);
   let array = [];
 
   if (isArray(objs)) {
@@ -24,8 +24,8 @@ export function getArray(objs: any): any[] {
  *
  * If the input is a single object, it will be added to an array and returned.
  */
-export function getArrayOfBooleans(objs: any): boolean[] {
-  objs = getArray(objs);
+export function getArrayOfBooleans(items: any): boolean[] {
+  const objs = getArray(items);
   const array = [];
 
   for (let obj of objs) {
@@ -43,8 +43,8 @@ export function getArrayOfBooleans(objs: any): boolean[] {
  *
  * If the input is a single object, it will be added to an array and returned.
  */
-export function getArrayOfModels<T>(clazz: (new (o?: Partial<T>) => T), objs: any): T[] {
-  objs = getArray(objs);
+export function getArrayOfModels<T>(clazz: new (o?: Partial<T>) => T, items: any): T[] {
+  const objs = getArray(items);
   const array = [];
 
   for (const obj of objs) {
@@ -61,8 +61,8 @@ export function getArrayOfModels<T>(clazz: (new (o?: Partial<T>) => T), objs: an
  *
  * If the input is a single object, it will be added to an array and returned.
  */
-export function getArrayOfNumbers(objs: any): number[] {
-  objs = getArray(objs);
+export function getArrayOfNumbers(items: any): number[] {
+  const objs = getArray(items);
   const array = [];
 
   for (let obj of objs) {
@@ -80,8 +80,8 @@ export function getArrayOfNumbers(objs: any): number[] {
  *
  * If the input is a single object, it will be added to an array and returned.
  */
-export function getArrayOfStrings(objs: any): string[] {
-  objs = getArray(objs);
+export function getArrayOfStrings(items: any): string[] {
+  const objs = getArray(items);
   const array = [];
 
   for (let obj of objs) {

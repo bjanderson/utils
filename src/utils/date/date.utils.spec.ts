@@ -1,7 +1,6 @@
 import { formatDate, getDate, isDate } from './date.utils';
 
 describe('date.utils', () => {
-
   describe('formatDate(date)', () => {
     it('is a function', () => {
       expect(typeof formatDate).toEqual('function');

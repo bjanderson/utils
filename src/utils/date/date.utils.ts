@@ -1,4 +1,3 @@
-
 /**
  * Format the given date as toLocaleDateString.
  */

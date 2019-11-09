@@ -5,12 +5,11 @@ import { getNumber, getObject, getString } from '../../utils';
  * status and errorMessage from any errors received from an api call.
  */
 export class ErrorResponse {
+  public errorMessage: string;
+  public status: number;
 
-  errorMessage: string;
-  status: number;
-
-  constructor(obj?: Partial<ErrorResponse>) {
-    obj = getObject(obj);
+  constructor(o?: Partial<ErrorResponse>) {
+    const obj = getObject(o);
     this.errorMessage = getString(obj.errorMessage, 'An Error Occurred');
     this.status = getNumber(obj.status);
   }

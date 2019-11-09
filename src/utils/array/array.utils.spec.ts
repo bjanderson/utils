@@ -1,8 +1,14 @@
-import { getArray, getArrayOfBooleans, getArrayOfModels, getArrayOfNumbers, getArrayOfStrings } from './array.utils';
+import {
+  getArray,
+  getArrayOfBooleans,
+  getArrayOfModels,
+  getArrayOfNumbers,
+  getArrayOfStrings,
+} from './array.utils';
 
 class TestModel {
-  test: string;
-  x: string;
+  public test: string;
+  public x: string;
   constructor() {
     this.test = 'test';
     this.x = 'test';
@@ -10,7 +16,6 @@ class TestModel {
 }
 
 describe('array.utils', () => {
-
   describe('getArray(objs)', () => {
     it('is a function', () => {
       expect(typeof getArray).toEqual('function');
@@ -117,7 +122,7 @@ describe('array.utils', () => {
     });
 
     it('returns an empty array when objs is not of the given model type', () => {
-      const objs = [{name: 'name'}];
+      const objs = [{ name: 'name' }];
       const result = getArrayOfModels(TestModel, objs);
       const expected: any = [];
       expect(result).toEqual(expected);
@@ -148,7 +153,22 @@ describe('array.utils', () => {
     });
 
     it('returns an array of numbers when the input is an array of items that can be converted to numbers', () => {
-      const input: any = [100, 1, 0.1, 0, -0.1, -1, -100, '100', '1', '0.1', '0', '-0.1', '-1', '-100'];
+      const input: any = [
+        100,
+        1,
+        0.1,
+        0,
+        -0.1,
+        -1,
+        -100,
+        '100',
+        '1',
+        '0.1',
+        '0',
+        '-0.1',
+        '-1',
+        '-100',
+      ];
       const expected: any = [100, 1, 0.1, 0, -0.1, -1, -100, 100, 1, 0.1, 0, -0.1, -1, -100];
       const result: any = getArrayOfNumbers(input);
       expect(result).toEqual(expected);
@@ -186,7 +206,7 @@ describe('array.utils', () => {
     });
 
     it('returns an array of strings when the input is an array of items that can be converted to strings', () => {
-      const input: any = ['test', 100, true, {toString: () => 'test toString'}];
+      const input: any = ['test', 100, true, { toString: () => 'test toString' }];
       const expected: any = ['test', '100', 'true', 'test toString'];
       const result: any = getArrayOfStrings(input);
       expect(result).toEqual(expected);
