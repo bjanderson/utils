@@ -10,7 +10,10 @@ export const NOOP = () => undefined;
  *
  * Optionally, choose the default value if the input value is undefined or null.
  */
-export function getBoolean(value: any, defaultValue: boolean = DEFAULT_BOOLEAN): boolean {
+export function getBoolean(
+  value: any,
+  defaultValue: boolean = DEFAULT_BOOLEAN
+): boolean {
   let bool;
   if (value === 'false') {
     bool = false;
@@ -25,7 +28,10 @@ export function getBoolean(value: any, defaultValue: boolean = DEFAULT_BOOLEAN):
  *
  * Optionally, choose the default value if the input value is undefined or null.
  */
-export function getNumber(value: any, defaultValue: number | null = DEFAULT_NUMBER): number | null {
+export function getNumber(
+  value: any,
+  defaultValue: number | null = DEFAULT_NUMBER
+): number | null {
   let num = value == null ? defaultValue : Number(value).valueOf();
   if (num == null || isNaN(num)) {
     num = defaultValue;
@@ -44,29 +50,6 @@ export function getObject(value: any, defaultValue: any = DEFAULT_OBJECT): any {
     obj = { value };
   }
   return obj;
-}
-
-/**
- * Get a string from any given input.
- *
- * Optionally, choose the default value if the input value is undefined or null.
- */
-export function getString(value: any, defaultValue: string | null = DEFAULT_STRING): string | null {
-  let str = getValueOrDefault(value, defaultValue);
-
-  if (Array.isArray(value) || isFunction(value)) {
-    str = defaultValue;
-  }
-
-  if (str != null) {
-    str = str.toString();
-  }
-
-  if (str === '[object Object]') {
-    str = defaultValue;
-  }
-
-  return str;
 }
 
 /**

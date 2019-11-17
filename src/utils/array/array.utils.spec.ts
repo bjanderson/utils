@@ -169,7 +169,22 @@ describe('array.utils', () => {
         '-1',
         '-100',
       ];
-      const expected: any = [100, 1, 0.1, 0, -0.1, -1, -100, 100, 1, 0.1, 0, -0.1, -1, -100];
+      const expected: any = [
+        100,
+        1,
+        0.1,
+        0,
+        -0.1,
+        -1,
+        -100,
+        100,
+        1,
+        0.1,
+        0,
+        -0.1,
+        -1,
+        -100,
+      ];
       const result: any = getArrayOfNumbers(input);
       expect(result).toEqual(expected);
     });
@@ -206,7 +221,12 @@ describe('array.utils', () => {
     });
 
     it('returns an array of strings when the input is an array of items that can be converted to strings', () => {
-      const input: any = ['test', 100, true, { toString: () => 'test toString' }];
+      const input: any = [
+        'test',
+        100,
+        true,
+        { toString: () => 'test toString' },
+      ];
       const expected: any = ['test', '100', 'true', 'test toString'];
       const result: any = getArrayOfStrings(input);
       expect(result).toEqual(expected);

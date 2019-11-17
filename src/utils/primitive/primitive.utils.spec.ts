@@ -2,11 +2,9 @@ import {
   DEFAULT_BOOLEAN,
   DEFAULT_NUMBER,
   DEFAULT_OBJECT,
-  DEFAULT_STRING,
   getBoolean,
   getNumber,
   getObject,
-  getString,
   getValueOrDefault,
   getValueOrNull,
   isFunction,
@@ -200,97 +198,6 @@ describe('primitive.utils', () => {
     it('returns an object with the input array as a value of the returned object', () => {
       const expected = { value: ['test 1', 'test 2'] };
       const result = getObject(['test 1', 'test 2']);
-      expect(result).toEqual(expected);
-    });
-  });
-
-  describe('getString(value, defaultValue)', () => {
-    it('is a function', () => {
-      expect(typeof getString).toEqual('function');
-    });
-
-    it('returns the DEFAULT_STRING when the input is undefined', () => {
-      const expected = DEFAULT_STRING;
-      const result = getString(undefined);
-      expect(result).toEqual(expected);
-    });
-
-    it('returns the DEFAULT_STRING when the value null', () => {
-      const expected = DEFAULT_STRING;
-      const result = getString(null);
-      expect(result).toEqual(expected);
-    });
-
-    it('returns the input string', () => {
-      const expected = 'test';
-      const result = getString('test');
-      expect(result).toEqual(expected);
-    });
-
-    it('returns the custom defaultValue when the value is undefined', () => {
-      const expected = 'test';
-      const result = getString(undefined, 'test');
-      expect(result).toEqual(expected);
-    });
-
-    it('returns the custom defaultValue when the value is null', () => {
-      const expected = 'test';
-      const result = getString(null, 'test');
-      expect(result).toEqual(expected);
-    });
-
-    it('returns the null as the defaultValue', () => {
-      const result = getString(undefined, null);
-      expect(result).toBeNull();
-    });
-
-    it('returns the defaultValue when the input is an object', () => {
-      const expected = DEFAULT_STRING;
-      const result = getString({});
-      expect(result).toEqual(expected);
-    });
-
-    it('returns the defaultValue when the input is an array', () => {
-      const expected = DEFAULT_STRING;
-      const result = getString(['test 1', 'test 2']);
-      expect(result).toEqual(expected);
-    });
-
-    it('returns the defaultValue when the input is a function', () => {
-      const expected = DEFAULT_STRING;
-      const result = getString(() => 'test 1');
-      expect(result).toEqual(expected);
-    });
-
-    it('returns the toString() result when the input specifies a custom toString function', () => {
-      const input = {
-        toString: () => 'custom toString result',
-      };
-      const result = getString(input);
-      expect(result).toEqual('custom toString result');
-    });
-
-    it('returns "0" when given 0', () => {
-      const expected = '0';
-      const result = getString(0);
-      expect(result).toEqual(expected);
-    });
-
-    it('returns the given number as a string', () => {
-      const expected = '11';
-      const result = getString(11);
-      expect(result).toEqual(expected);
-    });
-
-    it('returns "false" when given false', () => {
-      const expected = 'false';
-      const result = getString(false);
-      expect(result).toEqual(expected);
-    });
-
-    it('returns "true" when given true', () => {
-      const expected = 'true';
-      const result = getString(true);
       expect(result).toEqual(expected);
     });
   });
