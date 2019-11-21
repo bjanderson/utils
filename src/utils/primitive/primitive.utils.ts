@@ -30,8 +30,8 @@ export function getBoolean(
  */
 export function getNumber(
   value: any,
-  defaultValue: number | null = DEFAULT_NUMBER
-): number | null {
+  defaultValue: number = DEFAULT_NUMBER
+): number {
   let num = value == null ? defaultValue : Number(value).valueOf();
   if (num == null || isNaN(num)) {
     num = defaultValue;

@@ -7,8 +7,8 @@ import { DEFAULT_STRING, getValueOrDefault, isFunction } from '../primitive';
  */
 export function getString(
   value: any,
-  defaultValue: string | null = DEFAULT_STRING
-): string | null {
+  defaultValue: string = DEFAULT_STRING
+): string {
   let str = getValueOrDefault(value, defaultValue);
 
   if (Array.isArray(value) || isFunction(value)) {
@@ -60,7 +60,7 @@ export function uppercaseFirst(value: string): string {
  * Convert a kabob-case or PascalCase string to camelCase.
  */
 export function camelFromKabobOrPascal(value: string): string {
-  let str = lowercaseFirst(value);
+  const str = lowercaseFirst(value);
   const parts = str.split('-');
   let camel = parts.shift();
   for (const part of parts) {
