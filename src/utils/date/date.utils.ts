@@ -16,7 +16,7 @@ export function formatDate(date: any): string {
 /**
  * Get a date from the given input, or else get an empty string.
  */
-export function getDate(value: any, defaultValue: Date = DEFAULT_DATE): Date {
+export function getDate(value: any, defaultValue: any = DEFAULT_DATE): Date {
   return isDate(value) ? new Date(value) : defaultValue;
 }
 
