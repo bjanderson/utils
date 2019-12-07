@@ -1,4 +1,4 @@
-import { DEFAULT_STRING } from '../primitive';
+import { DEFAULT_STRING } from '../default-values';
 import {
   camelFromKabobOrPascal,
   getString,

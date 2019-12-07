@@ -1,4 +1,5 @@
-import { DEFAULT_STRING, getValueOrDefault, isFunction } from '../primitive';
+import { DEFAULT_STRING } from '../default-values';
+import { getValueOrDefault, isFunction } from '../primitive';
 
 /**
  * Get a string from any given input.

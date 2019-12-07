@@ -2,6 +2,9 @@ import {
   DEFAULT_BOOLEAN,
   DEFAULT_NUMBER,
   DEFAULT_OBJECT,
+  DEFAULT_STRING,
+} from '../default-values';
+import {
   getBoolean,
   getNumber,
   getObject,
@@ -207,24 +210,21 @@ describe('primitive.utils', () => {
       expect(typeof getValueOrDefault).toEqual('function');
     });
 
-    it('returns null when the input is undefined', () => {
-      const result = getValueOrDefault(undefined);
-      expect(result).toBeNull();
+    it('returns the default when the input is undefined', () => {
+      const defaultValue = 'test';
+      const result = getValueOrDefault(undefined, defaultValue);
+      expect(result).toEqual(defaultValue);
     });
 
-    it('returns null when the input is null', () => {
-      const result = getValueOrDefault(null);
-      expect(result).toBeNull();
-    });
-
-    it('returns null when the input is null', () => {
-      const result = getValueOrDefault(null);
-      expect(result).toBeNull();
+    it('returns the default when the input is null', () => {
+      const defaultValue = 'test';
+      const result = getValueOrDefault(null, defaultValue);
+      expect(result).toEqual(defaultValue);
     });
 
     it('returns the value when the input is defined', () => {
       const expected = 'test';
-      const result = getValueOrDefault('test');
+      const result = getValueOrDefault('test', DEFAULT_STRING);
       expect(result).toEqual(expected);
     });
 
@@ -312,6 +312,11 @@ describe('primitive.utils', () => {
     it('returns true when the input is an empty array', () => {
       const result = isNullOrEmpty([]);
       expect(result).toEqual(true);
+    });
+
+    it('returns false when the input is a number', () => {
+      const result = isNullOrEmpty(1);
+      expect(result).toEqual(false);
     });
 
     it('returns false when the input is an object', () => {

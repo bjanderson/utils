@@ -1,9 +1,8 @@
-export const DEFAULT_ARRAY: any[] = [];
-export const DEFAULT_BOOLEAN = false;
-export const DEFAULT_NUMBER = 0;
-export const DEFAULT_OBJECT: any = {};
-export const DEFAULT_STRING = '';
-export const NOOP = () => undefined;
+import {
+  DEFAULT_BOOLEAN,
+  DEFAULT_NUMBER,
+  DEFAULT_OBJECT,
+} from '../default-values';
 
 /**
  * Get a boolean from any given input.
@@ -14,13 +13,10 @@ export function getBoolean(
   value: any,
   defaultValue: boolean = DEFAULT_BOOLEAN
 ): boolean {
-  let bool;
-  if (value === 'false') {
-    bool = false;
-  } else {
-    bool = value == null ? defaultValue : !!value;
+  if (typeof value === 'string' && value.toLowerCase() === 'false') {
+    return false;
   }
-  return bool;
+  return value == null ? defaultValue : !!value;
 }
 
 /**
@@ -57,7 +53,7 @@ export function getObject(value: any, defaultValue: any = DEFAULT_OBJECT): any {
  *
  * Optionally, choose the default value if the input value is undefined or null.
  */
-export function getValueOrDefault(value: any, defaultValue: any = null): any {
+export function getValueOrDefault(value: any, defaultValue: any): any {
   return value == null ? defaultValue : value;
 }
 

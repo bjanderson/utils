@@ -1,3 +1,5 @@
+import { DEFAULT_DATE } from '../default-values';
+
 /**
  * Format the given date as toLocaleDateString.
  */
@@ -14,25 +16,19 @@ export function formatDate(date: any): string {
 /**
  * Get a date from the given input, or else get an empty string.
  */
-export function getDate(date: any): Date | string {
-  let theDate: Date | string = '';
-
-  if (isDate(date)) {
-    theDate = new Date(date);
-  }
-
-  return theDate;
+export function getDate(value: any, defaultValue: Date = DEFAULT_DATE): Date {
+  return isDate(value) ? new Date(value) : defaultValue;
 }
 
 /**
  * Check if a value can be converted to a date.
  */
-export function isDate(date: any): boolean {
+export function isDate(value: any): boolean {
   let isValid = false;
 
   try {
-    const d = new Date(date);
-    isValid = d.toString() !== 'Invalid Date';
+    const date = new Date(value);
+    isValid = date.toString() !== 'Invalid Date';
   } catch (err) {}
 
   return isValid;
