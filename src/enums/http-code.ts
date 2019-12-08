@@ -1,4 +1,4 @@
-export enum ErrorCode {
+export enum HttpCode {
   Bad_Request = 400,
   Unauthorized = 401,
   Forbidden = 403,

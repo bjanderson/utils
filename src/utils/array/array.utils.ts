@@ -11,7 +11,7 @@ export function getArray(items: any): any[] {
   const objs = getValueOrDefault(items, []);
   let array = [];
 
-  if (isArray(objs)) {
+  if (Array.isArray(objs)) {
     array = objs;
   } else {
     array = [objs];
@@ -29,12 +29,11 @@ export function getArrayOfBooleans(items: any): boolean[] {
   const objs = getArray(items);
   const array = [];
 
-  for (let obj of objs) {
+  objs.forEach((obj) => {
     if (obj != null) {
-      obj = getBoolean(obj);
-      array.push(obj);
+      array.push(getBoolean(obj));
     }
-  }
+  });
 
   return array;
 }
@@ -51,11 +50,11 @@ export function getArrayOfModels<T>(
   const objs = getArray(items);
   const array = [];
 
-  for (const obj of objs) {
+  objs.forEach((obj) => {
     if (hasPropertyOf(clazz, obj)) {
       array.push(new clazz(obj));
     }
-  }
+  });
 
   return array;
 }
@@ -69,12 +68,11 @@ export function getArrayOfNumbers(items: any): number[] {
   const objs = getArray(items);
   const array = [];
 
-  for (let obj of objs) {
+  objs.forEach((obj) => {
     if (obj != null) {
-      obj = getNumber(obj);
-      array.push(obj);
+      array.push(getNumber(obj));
     }
-  }
+  });
 
   return array;
 }
@@ -88,19 +86,11 @@ export function getArrayOfStrings(items: any): string[] {
   const objs = getArray(items);
   const array = [];
 
-  for (let obj of objs) {
+  objs.forEach((obj) => {
     if (obj != null) {
-      obj = getString(obj);
-      array.push(obj);
+      array.push(getString(obj));
     }
-  }
+  });
 
   return array;
-}
-
-/**
- * Check if a value is an array.
- */
-export function isArray(obj: any): boolean {
-  return Array.isArray(obj);
 }

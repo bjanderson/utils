@@ -1,2 +1,2 @@
-export * from './error-code';
+export * from './http-code';
 export * from './time';
