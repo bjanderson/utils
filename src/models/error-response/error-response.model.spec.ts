@@ -13,11 +13,15 @@ describe('ErrorResponse', () => {
     });
 
     it('should set the default values when given no input object', () => {
-      expect(Object.values(defaults)).toEqual(Object.values(new ErrorResponse()));
+      expect(Object.values(defaults)).toEqual(
+        Object.values(new ErrorResponse())
+      );
     });
 
     it('should set the default values when given null', () => {
-      expect(Object.values(defaults)).toEqual(Object.values(new ErrorResponse(null)));
+      expect(Object.values(defaults)).toEqual(
+        Object.values(new ErrorResponse(null))
+      );
     });
   });
 
@@ -28,7 +32,9 @@ describe('ErrorResponse', () => {
         status: 404,
       };
 
-      expect(Object.values(test)).toEqual(Object.values(new ErrorResponse(test)));
+      expect(Object.values(test)).toEqual(
+        Object.values(new ErrorResponse(test))
+      );
     });
   });
 });
