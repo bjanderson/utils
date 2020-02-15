@@ -15,11 +15,17 @@
     },
     "interface-name": true,
     "max-classes-per-file": [true, 1, "exclude-class-expressions"],
+    "max-line-length": [true, 100],
     "member-access": true,
     "member-ordering": [
       true,
       {
-        "order": ["static-field", "instance-field", "static-method", "instance-method"]
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
       }
     ],
     "no-consecutive-blank-lines": true,
