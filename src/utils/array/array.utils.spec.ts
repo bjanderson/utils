@@ -73,7 +73,7 @@ describe('array.utils', () => {
       expect(result).toEqual(expected);
     });
 
-    it('returns an array of booleans when the input is an array of items that can be converted to booleans', () => {
+    it(`returns an array of booleans when the input is an array of items that can be converted to booleans`, () => {
       const input: any = [true, false, 1, 0, 'true', 'false', {}, []];
       const expected: any = [true, false, true, false, true, false, true, true];
       const result: any = getArrayOfBooleans(input);
@@ -152,7 +152,7 @@ describe('array.utils', () => {
       expect(result).toEqual(expected);
     });
 
-    it('returns an array of numbers when the input is an array of items that can be converted to numbers', () => {
+    it(`returns an array of numbers when the input is an array of items that can be converted to numbers`, () => {
       const input: any = [
         100,
         1,
@@ -169,22 +169,7 @@ describe('array.utils', () => {
         '-1',
         '-100',
       ];
-      const expected: any = [
-        100,
-        1,
-        0.1,
-        0,
-        -0.1,
-        -1,
-        -100,
-        100,
-        1,
-        0.1,
-        0,
-        -0.1,
-        -1,
-        -100,
-      ];
+      const expected: any = [100, 1, 0.1, 0, -0.1, -1, -100, 100, 1, 0.1, 0, -0.1, -1, -100];
       const result: any = getArrayOfNumbers(input);
       expect(result).toEqual(expected);
     });
@@ -220,20 +205,15 @@ describe('array.utils', () => {
       expect(result).toEqual(expected);
     });
 
-    it('returns an array of strings when the input is an array of items that can be converted to strings', () => {
-      const input: any = [
-        'test',
-        100,
-        true,
-        { toString: () => 'test toString' },
-      ];
+    it(`returns an array of strings when the input is an array of items that can be converted to strings`, () => {
+      const input: any = ['test', 100, true, { toString: (): string => 'test toString' }];
       const expected: any = ['test', '100', 'true', 'test toString'];
       const result: any = getArrayOfStrings(input);
       expect(result).toEqual(expected);
     });
 
     it('returns an array of empty strings for any input array elements that cannot be safely converted to a string', () => {
-      const input: any = [['test array'], {}, () => 'test'];
+      const input: any = [['test array'], {}, (): string => 'test'];
       const expected: any = ['', '', ''];
       const result: any = getArrayOfStrings(input);
       expect(result).toEqual(expected);

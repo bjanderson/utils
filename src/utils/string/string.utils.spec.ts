@@ -73,7 +73,7 @@ describe('string.utils', () => {
 
     it('returns the toString() result when the input specifies a custom toString function', () => {
       const input = {
-        toString: () => 'custom toString result',
+        toString: (): string => 'custom toString result',
       };
       const result = getString(input);
       expect(result).toEqual('custom toString result');

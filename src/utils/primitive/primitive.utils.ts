@@ -1,18 +1,11 @@
-import {
-  DEFAULT_BOOLEAN,
-  DEFAULT_NUMBER,
-  DEFAULT_OBJECT,
-} from '../default-values';
+import { DEFAULT_BOOLEAN, DEFAULT_NUMBER, DEFAULT_OBJECT } from '../default-values';
 
 /**
  * Get a boolean from any given input.
  *
  * Optionally, choose the default value if the input value is undefined or null.
  */
-export function getBoolean(
-  value: any,
-  defaultValue: boolean = DEFAULT_BOOLEAN
-): boolean {
+export function getBoolean(value: any, defaultValue: boolean = DEFAULT_BOOLEAN): boolean {
   if (typeof value === 'string' && value.toLowerCase() === 'false') {
     return false;
   }
@@ -24,10 +17,7 @@ export function getBoolean(
  *
  * Optionally, choose the default value if the input value is undefined or null.
  */
-export function getNumber(
-  value: any,
-  defaultValue: number = DEFAULT_NUMBER
-): number {
+export function getNumber(value: any, defaultValue: number = DEFAULT_NUMBER): number {
   let num = value == null ? defaultValue : Number(value).valueOf();
   if (num == null || isNaN(num)) {
     num = defaultValue;

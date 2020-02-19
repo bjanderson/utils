@@ -3,6 +3,7 @@ import { hasPropertyOf, isInstanceOf, newIfDefined } from './model.utils';
 class TestModel {
   public test: string;
   public x: string;
+
   constructor() {
     this.test = 'test';
     this.x = 'test';

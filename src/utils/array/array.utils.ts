@@ -29,11 +29,11 @@ export function getArrayOfBooleans(items: any): boolean[] {
   const objs = getArray(items);
   const array = [];
 
-  for (const obj of objs) {
+  objs.forEach((obj: any) => {
     if (obj != null) {
       array.push(getBoolean(obj));
     }
-  }
+  });
 
   return array;
 }
@@ -43,18 +43,15 @@ export function getArrayOfBooleans(items: any): boolean[] {
  *
  * If the input is a single object, it will be added to an array and returned.
  */
-export function getArrayOfModels<T>(
-  clazz: new (o?: Partial<T>) => T,
-  items: any
-): T[] {
+export function getArrayOfModels<T>(Clazz: new (o?: Partial<T>) => T, items: any): T[] {
   const objs = getArray(items);
   const array = [];
 
-  for (const obj of objs) {
-    if (hasPropertyOf(clazz, obj)) {
-      array.push(new clazz(obj));
+  objs.forEach((obj: any) => {
+    if (hasPropertyOf(Clazz, obj)) {
+      array.push(new Clazz(obj));
     }
-  }
+  });
 
   return array;
 }
@@ -68,11 +65,11 @@ export function getArrayOfNumbers(items: any): number[] {
   const objs = getArray(items);
   const array = [];
 
-  for (const obj of objs) {
+  objs.forEach((obj: any) => {
     if (obj != null) {
       array.push(getNumber(obj));
     }
-  }
+  });
 
   return array;
 }
@@ -86,11 +83,11 @@ export function getArrayOfStrings(items: any): string[] {
   const objs = getArray(items);
   const array = [];
 
-  for (const obj of objs) {
+  objs.forEach((obj: any) => {
     if (obj != null) {
       array.push(getString(obj));
     }
-  }
+  });
 
   return array;
 }

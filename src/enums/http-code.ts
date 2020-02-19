@@ -1,15 +1,15 @@
 export enum HttpCode {
-  Bad_Request = 400,
-  Unauthorized = 401,
-  Forbidden = 403,
-  Not_Found = 404,
-  Request_Timeout = 408,
-  Conflict = 409,
-  Internal_Server_Error = 500,
-  Not_Implemented = 501,
-  Bad_Gateway = 502,
-  Service_Unavailable = 503,
-  Gateway_Timeout = 504,
+  BAD_REQUEST = 400,
+  UNAUTHORIZED = 401,
+  FORBIDDEN = 403,
+  NOT_FOUND = 404,
+  REQUEST_TIMEOUT = 408,
+  CONFLICT = 409,
+  INTERNAL_SERVER_ERROR = 500,
+  NOT_IMPLEMENTED = 501,
+  BAD_GATEWAY = 502,
+  SERVICE_UNAVAILABLE = 503,
+  GATEWAY_TIMEOUT = 504,
 }
 
 /**

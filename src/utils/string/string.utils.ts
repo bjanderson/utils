@@ -6,10 +6,7 @@ import { getValueOrDefault, isFunction } from '../primitive';
  *
  * Optionally, choose the default value if the input value is undefined or null.
  */
-export function getString(
-  value: any,
-  defaultValue: string = DEFAULT_STRING
-): string {
+export function getString(value: any, defaultValue: string = DEFAULT_STRING): string {
   let str = getValueOrDefault(value, defaultValue);
 
   if (Array.isArray(value) || isFunction(value)) {
@@ -64,9 +61,9 @@ export function camelFromKabobOrPascal(value: string): string {
   const str = lowercaseFirst(value);
   const parts = str.split('-');
   let camel = parts.shift();
-  for (const part of parts) {
+  parts.forEach((part: string) => {
     camel += uppercaseFirst(part);
-  }
+  });
   return camel;
 }
 
@@ -99,8 +96,8 @@ export function titleFromKabob(value: string): string {
   const str = getString(value);
   const parts = str.split('-');
   let title = uppercaseFirst(parts.shift());
-  for (const part of parts) {
+  parts.forEach((part: string) => {
     title += ` ${uppercaseFirst(part)}`;
-  }
+  });
   return title;
 }

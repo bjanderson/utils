@@ -1,9 +1,4 @@
-import {
-  DEFAULT_BOOLEAN,
-  DEFAULT_NUMBER,
-  DEFAULT_OBJECT,
-  DEFAULT_STRING,
-} from '../default-values';
+import { DEFAULT_BOOLEAN, DEFAULT_NUMBER, DEFAULT_OBJECT, DEFAULT_STRING } from '../default-values';
 import {
   getBoolean,
   getNumber,

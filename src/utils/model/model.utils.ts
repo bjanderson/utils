@@ -3,18 +3,16 @@ import { getValueOrNull } from '../primitive';
 /**
  * Check if the given object has any properties in common with an instance of the given class.
  */
-export function hasPropertyOf<T>(
-  clazz: new (o?: Partial<T>) => T,
-  obj: any
-): boolean {
-  if (clazz == null || obj == null) {
+export function hasPropertyOf<T>(Clazz: new (o?: Partial<T>) => T, obj: any): boolean {
+  if (Clazz == null || obj == null) {
     return false;
   }
-  const model = new clazz();
+  const model = new Clazz();
   const modelKeys = Object.keys(model);
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const key of modelKeys) {
-    if (obj.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
       return true;
     }
   }
@@ -25,18 +23,16 @@ export function hasPropertyOf<T>(
 /**
  * Check if the given object has all properties in common with an instance of the given class.
  */
-export function isInstanceOf<T>(
-  clazz: new (o?: Partial<T>) => T,
-  obj: any
-): boolean {
-  if (clazz == null || obj == null) {
+export function isInstanceOf<T>(Clazz: new (o?: Partial<T>) => T, obj: any): boolean {
+  if (Clazz == null || obj == null) {
     return false;
   }
-  const model = new clazz();
+  const model = new Clazz();
   const modelKeys = Object.keys(model);
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const key of modelKeys) {
-    if (!obj.hasOwnProperty(key)) {
+    if (!Object.prototype.hasOwnProperty.call(obj, key)) {
       return false;
     }
   }
@@ -48,10 +44,10 @@ export function isInstanceOf<T>(
  * If the given object is defined, create a new instance of the given class with it.
  * Otherwise return null.
  */
-export function newIfDefined<T>(clazz: new (o?: Partial<T>) => T, obj: any): T {
+export function newIfDefined<T>(Clazz: new (o?: Partial<T>) => T, obj: any): T {
   const value = getValueOrNull(obj);
   if (value != null) {
-    return new clazz(value);
+    return new Clazz(value);
   }
 
   return null;

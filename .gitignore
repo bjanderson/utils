@@ -1,12 +1,12 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/coverage
-/dist
-/doc
-/out-tsc
-/package
-/tmp
+coverage/
+dist/
+doc/
+out-tsc/
+package/
+tmp/
 
 # dependencies
 /node_modules
@@ -19,12 +19,12 @@
 !.vscode/extensions.json
 
 # misc
-/.sass-cache
-/connect.lock
+.sass-cache/
+connect.lock/
 
-/libpeerconnection.log
+libpeerconnection.log/
 *.log
-/typings
+typings/
 
 # System Files
 .DS_Store
