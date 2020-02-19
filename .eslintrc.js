@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
+    jasmine: true,
     jest: true,
   },
 
@@ -38,11 +39,11 @@ module.exports = {
   },
 
   rules: {
-
     // ESLINT
     'arrow-body-style': 'warn',
     'arrow-parens': ['warn', 'always'],
     camelcase: 'warn',
+    'class-methods-use-this': 'off',
     'comma-dangle': 'off',
     complexity: 'off',
     'constructor-super': 'warn',
@@ -113,6 +114,7 @@ module.exports = {
     'no-unsafe-finally': 'warn',
     'no-unused-expressions': 'warn',
     'no-unused-labels': 'warn',
+    'no-useless-constructor': 'off',
     'no-var': 'warn',
     'object-shorthand': 'warn',
     'one-var': ['warn', 'never'],
@@ -140,7 +142,7 @@ module.exports = {
       },
     ],
     'import/no-deprecated': 'warn',
-    'import/no-extraneous-dependencies': [2, { devDependencies: ['**/test.tsx', '**/test.ts'] }],
+    'import/no-extraneous-dependencies': [1, { devDependencies: true }],
     'import/order': 'warn',
     'import/prefer-default-export': 'off',
 
@@ -157,6 +159,13 @@ module.exports = {
     '@typescript-eslint/class-name-casing': 'warn',
     '@typescript-eslint/consistent-type-assertions': 'warn',
     '@typescript-eslint/consistent-type-definitions': 'warn',
+    '@typescript-eslint/explicit-function-return-type': [
+      'warn',
+      {
+        allowExpressions: true,
+        allowTypedFunctionExpressions: true,
+      },
+    ],
     '@typescript-eslint/explicit-member-accessibility': [
       'warn',
       {
