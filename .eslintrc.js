@@ -166,15 +166,9 @@ module.exports = {
         allowTypedFunctionExpressions: true,
       },
     ],
-    '@typescript-eslint/explicit-member-accessibility': [
-      'warn',
-      {
-        accessibility: 'explicit',
-        overrides: { constructors: 'off' },
-      },
-    ],
+    '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/indent': 'off',
-    '@typescript-eslint/interface-name-prefix': 'warn',
+    '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/member-delimiter-style': [
       'off',
       {
