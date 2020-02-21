@@ -1,5 +1,4 @@
 module.exports = {
-
   collectCoverageFrom: [
     '<rootDir>/src/**/*.ts',
     '!<rootDir>/src/**/index.ts',
@@ -9,10 +8,7 @@ module.exports = {
 
   coverageDirectory: 'coverage',
 
-  coverageReporters: [
-    'lcov',
-    'text-summary'
-  ],
+  coverageReporters: ['lcov', 'text-summary'],
 
   preset: 'ts-jest',
 
@@ -23,7 +19,6 @@ module.exports = {
     '<rootDir>/dist/',
     '<rootDir>/e2e/',
     '<rootDir>/node_modules/',
-    '<rootDir>/src/app/*.(js|scss)'
+    '<rootDir>/src/app/*.(js|scss)',
   ],
-
 };
