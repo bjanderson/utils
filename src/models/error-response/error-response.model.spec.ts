@@ -1,11 +1,11 @@
-import { DEFAULT_NUMBER } from '../../utils';
+import { HttpCode } from '../../enums';
 import { ErrorResponse } from './error-response.model';
 
 describe('ErrorResponse', () => {
   describe('constructor defaults', () => {
     const defaults = {
       errorMessage: 'An Error Occurred',
-      status: DEFAULT_NUMBER,
+      status: HttpCode.NO_RESPONSE,
     };
 
     it('should have the expected fields', () => {
@@ -25,7 +25,7 @@ describe('ErrorResponse', () => {
     it('should set all values passed into the constructor', () => {
       const test = {
         errorMessage: 'test errorMessage',
-        status: 404,
+        status: HttpCode.OK,
       };
 
       expect(Object.values(test)).toEqual(Object.values(new ErrorResponse(test)));

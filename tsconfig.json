@@ -10,5 +10,5 @@
     "target": "es5",
     "types": ["jest"]
   },
-  "exclude": ["coverage", "dist", "doc", "jest", "node_modules", "**/*.spec.ts"]
+  "exclude": ["coverage", "dist", "doc", "jest", "node_modules", "scripts"]
 }
