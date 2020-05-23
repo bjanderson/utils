@@ -1,6 +1,26 @@
 import { DEFAULT_BOOLEAN, DEFAULT_NUMBER, DEFAULT_OBJECT } from '../default-values';
 
 /**
+ * Get a nested value from an object without encountering null or undefined errors
+ *
+ * @param obj - the object containing the nested value
+ * @param dottedPath - the dotted path to the nested value in the object. Can contain array indexes (not in square brakets) as part of the dotted path (e.g. a.1.b).
+ * @param defaultValue - the value to return if the path is not defined (default: null)
+ */
+export function getNested(obj: any, dottedPath: string, defaultValue: any = null): any {
+  let value = defaultValue;
+  try {
+    value = dottedPath.split('.').reduce((a, b) => (a == null ? null : a[b]), obj);
+    if (value == null) {
+      return defaultValue;
+    }
+  } catch (err) {
+    return defaultValue;
+  }
+  return value;
+}
+
+/**
  * Get a boolean from any given input.
  *
  * Optionally, choose the default value if the input value is undefined or null.
