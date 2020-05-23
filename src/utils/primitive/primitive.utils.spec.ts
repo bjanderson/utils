@@ -22,9 +22,16 @@ describe('primitive.utils', () => {
       expect(result).toBeNull();
     });
 
+    it('returns the default value when given object is null', () => {
+      const defaultValue = 'test';
+      const obj = null;
+      const result = getNested(obj, 'a.b.1.c', defaultValue);
+      expect(result).toEqual(defaultValue);
+    });
+
     it('returns the default value when the nested value is not found', () => {
       const defaultValue = 'test';
-      const obj = {};
+      const obj = { a: 'value' };
       const result = getNested(obj, 'a.b.1.c', defaultValue);
       expect(result).toEqual(defaultValue);
     });
