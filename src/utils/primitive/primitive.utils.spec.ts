@@ -7,65 +7,9 @@ import {
   getValueOrNull,
   isFunction,
   isNullOrEmpty,
-  getNested,
 } from './primitive.utils';
 
 describe('primitive.utils', () => {
-  describe('getNested()', () => {
-    it('is a function', () => {
-      expect(typeof getNested).toEqual('function');
-    });
-
-    it('returns null when the nested value is not found', () => {
-      const obj = {};
-      const result = getNested(obj, 'a.b.1.c');
-      expect(result).toBeNull();
-    });
-
-    it('returns the default value when given object is null', () => {
-      const defaultValue = 'test';
-      const obj = null;
-      const result = getNested(obj, 'a.b.1.c', defaultValue);
-      expect(result).toEqual(defaultValue);
-    });
-
-    it('returns the default value when the nested value is not found', () => {
-      const defaultValue = 'test';
-      const obj = { a: 'value' };
-      const result = getNested(obj, 'a.b.1.c', defaultValue);
-      expect(result).toEqual(defaultValue);
-    });
-
-    it('returns null when the nested value when the path contains a function', () => {
-      const defaultValue = 'test';
-      const obj = {
-        a: () => ({ b: [{}, { c: 'value' }] }),
-      };
-      const result = getNested(obj, 'a.b.1.c', defaultValue);
-      expect(result).toEqual(defaultValue);
-    });
-
-    it('returns the nested array', () => {
-      const expected = [{ c: 'test-0' }, { c: 'test-1' }];
-      const obj = { a: { b: [{ c: 'test-0' }, { c: 'test-1' }] } };
-      const result = getNested(obj, 'a.b');
-      expect(result).toEqual(expected);
-    });
-
-    it('returns the nested object', () => {
-      const expected = { c: 'test-1' };
-      const obj = { a: { b: [{ c: 'test-0' }, { c: 'test-1' }] } };
-      const result = getNested(obj, 'a.b.1');
-      expect(result).toEqual(expected);
-    });
-
-    it('returns the nested value', () => {
-      const obj = { a: { b: [{ c: 'test-0' }, { c: 'test-1' }] } };
-      const result = getNested(obj, 'a.b.1.c');
-      expect(result).toEqual('test-1');
-    });
-  });
-
   describe('getBoolean(value, defaultValue)', () => {
     it('is a function', () => {
       expect(typeof getBoolean).toEqual('function');
