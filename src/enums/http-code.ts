@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 export enum HttpCode {
   NO_RESPONSE = 0,
 

@@ -105,6 +105,7 @@
     "no-unsafe-finally": "warn",
     "no-unused-expressions": "warn",
     "no-unused-labels": "warn",
+    "no-use-before-define": "off",
     "no-useless-constructor": "off",
     "no-var": "warn",
     "object-shorthand": "warn",
@@ -149,9 +150,9 @@
     "@typescript-eslint/adjacent-overload-signatures": "warn",
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/ban-types": "warn",
-    "@typescript-eslint/class-name-casing": "warn",
     "@typescript-eslint/consistent-type-assertions": "warn",
     "@typescript-eslint/consistent-type-definitions": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/explicit-function-return-type": [
       "warn",
       {
@@ -176,6 +177,14 @@
       }
     ],
     "@typescript-eslint/member-ordering": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "typeParameter",
+        "format": ["PascalCase"],
+        "prefix": ["T"]
+      }
+    ],
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-empty-interface": "warn",
     "@typescript-eslint/no-explicit-any": "off",
@@ -186,6 +195,8 @@
     "@typescript-eslint/no-parameter-properties": "off",
     "@typescript-eslint/no-require-imports": "warn",
     "@typescript-eslint/no-this-alias": "warn",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/prefer-for-of": "warn",

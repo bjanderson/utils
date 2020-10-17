@@ -25,6 +25,7 @@ export function getNumber(value: any, defaultValue: number = DEFAULT_NUMBER): nu
   return num;
 }
 
+/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
 /**
  * Get an object from any given input.
  *
@@ -61,6 +62,7 @@ export function isFunction(value: any): boolean {
   return typeof value === 'function';
 }
 
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /**
  * Check if a value is defined with a meaningful value.
  */

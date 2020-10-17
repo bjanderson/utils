@@ -1,6 +1,7 @@
 import { DEFAULT_STRING } from '../default-values';
 import { getValueOrDefault, isFunction } from '../primitive';
 
+/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
 /**
  * Get a string from any given input.
  *

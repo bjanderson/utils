@@ -2,7 +2,7 @@ import { getObject, getString, getValueOrDefault } from '../../utils';
 import { HttpCode } from '../../enums';
 
 /**
- * This is a simple error reponse object that should contain the
+ * This is a simple error response object that should contain the
  * status and errorMessage from any errors received from an api call.
  */
 export class ErrorResponse {
@@ -10,7 +10,7 @@ export class ErrorResponse {
   public status: HttpCode;
 
   constructor(o?: Partial<ErrorResponse>) {
-    const obj = getObject(o);
+    const obj: Partial<ErrorResponse> = getObject(o);
     this.errorMessage = getString(obj.errorMessage, 'An Error Occurred');
     this.status = getValueOrDefault(obj.status, HttpCode.NO_RESPONSE);
   }
