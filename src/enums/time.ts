@@ -3,7 +3,6 @@
 // _M -> minutes
 // _H -> hours
 
-/* eslint-disable no-shadow */
 export enum Time {
   SECOND_MS = 1000,
   MINUTE_MS = 60000,

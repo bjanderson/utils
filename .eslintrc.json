@@ -10,9 +10,9 @@
     "airbnb/base",
     "prettier",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "prettier/@typescript-eslint"
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
+  "ignorePatterns": ["scripts/*"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "tsconfig.eslint.json",
@@ -92,12 +92,7 @@
     "no-new-wrappers": "warn",
     "no-param-reassign": "warn",
     "no-restricted-globals": "off",
-    "no-shadow": [
-      "warn",
-      {
-        "hoist": "all"
-      }
-    ],
+
     "no-throw-literal": "warn",
     "no-trailing-spaces": "off",
     "no-undef-init": "warn",
@@ -125,17 +120,7 @@
     "spaced-comment": "warn",
     "use-isnan": "warn",
     "valid-typeof": "off",
-    "import/extensions": [
-      "warn",
-      "ignorePackages",
-      {
-        "js": "never",
-        "mjs": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
+    "import/extensions": "off",
     "import/no-deprecated": "warn",
     "import/no-extraneous-dependencies": [
       1,
@@ -215,6 +200,13 @@
           "no-boolean-literal-compare": true,
           "no-reference-import": true
         }
+      }
+    ],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": [
+      "warn",
+      {
+        "hoist": "all"
       }
     ]
   }
