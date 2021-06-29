@@ -19,6 +19,7 @@
     "fix-ts-paths": "node scripts/fix-ts-paths.js",
     "doc": "typedoc --out ../docs/common src/**/*.ts",
     "lint": "eslint ./src --ext .ts",
+    "prepublish": "npm run build",
     "push:major": "npm version major",
     "push:minor": "npm version minor",
     "push:patch": "npm version patch",
