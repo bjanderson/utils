@@ -91,3 +91,19 @@ export function getArrayOfStrings(items: any): string[] {
 
   return array;
 }
+
+/**
+ * Map keys and values into an object.
+ * @param keys keys that the values will be mapped to
+ * @param values values to be mapped to the keys
+ * @returns an object
+ */
+export function mapKV(keys: string[], values: any[]): any {
+  const obj = {};
+  const ks = getArray(keys);
+  const vs = getArray(values);
+  ks.forEach((k: string, i: number) => {
+    obj[k] = vs[i];
+  });
+  return obj;
+}

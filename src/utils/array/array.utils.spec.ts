@@ -4,6 +4,7 @@ import {
   getArrayOfModels,
   getArrayOfNumbers,
   getArrayOfStrings,
+  mapKV,
 } from './array.utils';
 
 class TestModel {
@@ -223,6 +224,26 @@ describe('array.utils', () => {
       const input: any = ['test 1', null, undefined, 'test 2'];
       const expected: any = ['test 1', 'test 2'];
       const result: any = getArrayOfStrings(input);
+      expect(result).toEqual(expected);
+    });
+  });
+
+  describe('mapKV()', () => {
+    it('is a function', () => {
+      expect(typeof mapKV).toEqual('function');
+    });
+
+    it('returns an empty object when given nulls', () => {
+      const expected = {};
+      const result = mapKV(null, null);
+      expect(result).toEqual(expected);
+    });
+
+    it('returns an object with the keys and values mapped', () => {
+      const expected = { a: 1, b: 'two', c: { num: 3 }, d: [4] };
+      const keys = ['a', 'b', 'c', 'd'];
+      const values = [1, 'two', { num: 3 }, [4]];
+      const result = mapKV(keys, values);
       expect(result).toEqual(expected);
     });
   });
