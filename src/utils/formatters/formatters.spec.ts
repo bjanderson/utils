@@ -1,5 +1,5 @@
 import { DEFAULT_NUMBER, DEFAULT_STRING } from '../default-values';
-import { dollarsToNum, numToDollars } from './formatters';
+import { dollarsToNum, msToTime, numToDollars } from './formatters';
 
 describe('formatters', () => {
   describe('numToDollars(value, defaultValue)', () => {
@@ -34,6 +34,36 @@ describe('formatters', () => {
     it('returns the number from the given dollar string', () => {
       const expected = 1234567123345.89;
       const result = dollarsToNum('$1 234,567 123,345.89');
+      expect(result).toEqual(expected);
+    });
+  });
+
+  describe('msToTime()', () => {
+    it('returns the correct s', () => {
+      const expected = '5s';
+      const milliSeconds = 5000;
+      const result = msToTime(milliSeconds);
+      expect(result).toEqual(expected);
+    });
+
+    it('returns the correct m', () => {
+      const expected = '2m 5s';
+      const milliSeconds = 125000;
+      const result = msToTime(milliSeconds);
+      expect(result).toEqual(expected);
+    });
+
+    it('returns the correct h', () => {
+      const expected = '5h 2m';
+      const milliSeconds = 18125000;
+      const result = msToTime(milliSeconds);
+      expect(result).toEqual(expected);
+    });
+
+    it('returns the correct d', () => {
+      const expected = '3d 5h';
+      const milliSeconds = 277325000;
+      const result = msToTime(milliSeconds);
       expect(result).toEqual(expected);
     });
   });
