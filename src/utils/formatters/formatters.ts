@@ -1,6 +1,9 @@
 import { getNumber } from '../primitive';
 import { getString } from '../string';
 
+/**
+ * Convert a number to a string in USD currency format
+ */
 export function numToDollars(num: number): string {
   const numberFormatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -15,10 +18,17 @@ export function numToDollars(num: number): string {
   return str;
 }
 
+/**
+ * Convert a string in USD currency format to a number
+ */
 export function dollarsToNum(dollars: string): number {
   return getNumber(parseFloat(getString(dollars).replace(/[$,\s]/g, '')));
 }
 
+/**
+ * Convert milliseconds to an abbreviated humanized string -
+ * days/hours, hours/minutes, minutes/seconds, or just seconds depending on the number of milliseconds
+ */
 export function msToTime(milliSeconds: number): string {
   let time = Math.floor(milliSeconds / 1000);
   const s = time % 60;

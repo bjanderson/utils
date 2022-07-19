@@ -17,7 +17,7 @@
     "prebuild": "rimraf dist",
     "build": "tsc",
     "fix-ts-paths": "node scripts/fix-ts-paths.js",
-    "doc": "typedoc --out ../docs/common src/**/*.ts",
+    "doc": "typedoc --out ./docs/utils src/**/*.ts",
     "lint": "eslint ./src --ext .ts",
     "prepublish": "npm run build",
     "push:major": "npm version major",
