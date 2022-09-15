@@ -1,32 +1,6 @@
-import { formatDate, getDate, isDate } from './date.utils';
+import { getDate, isDate } from './date.utils';
 
 describe('date.utils', () => {
-  describe('formatDate(date)', () => {
-    it('is a function', () => {
-      expect(typeof formatDate).toEqual('function');
-    });
-
-    it('returns "Invalid date" for an invalid date', () => {
-      const date = '';
-      const expected = 'Invalid date';
-      const result = formatDate(date);
-      expect(result).toEqual(expected);
-    });
-
-    it('returns a displayable date for a number', () => {
-      const date = 1577941200000;
-      const expected = '1-2-2020';
-      const result = formatDate(date, 'M-D-YYYY');
-      expect(result).toEqual(expected);
-    });
-
-    it('returns "Invalid date" if the date is invalid', () => {
-      const expected = 'Invalid date';
-      const result: any = formatDate(NaN);
-      expect(result).toEqual(expected);
-    });
-  });
-
   describe('getDate(date)', () => {
     it('is a function', () => {
       expect(typeof getDate).toEqual('function');
