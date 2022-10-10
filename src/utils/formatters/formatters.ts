@@ -22,7 +22,12 @@ export function numToDollars(num: number): string {
  * Convert a string in USD currency format to a number
  */
 export function dollarsToNum(dollars: string): number {
-  return getNumber(parseFloat(getString(dollars).replace(/[$,\s]/g, '')));
+  const str = getString(dollars)
+    .replace(/[$),\s]/g, '')
+    .replace(/[(]/g, '-');
+
+  const num = getNumber(parseFloat(str));
+  return num;
 }
 
 /**
