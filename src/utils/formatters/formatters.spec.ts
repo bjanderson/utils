@@ -42,6 +42,12 @@ describe('formatters', () => {
       const result = dollarsToNum('$(1 234,567 123,345.89)');
       expect(result).toEqual(expected);
     });
+
+    it('returns the number from the given dollar string', () => {
+      const expected = 1234.56;
+      const result = dollarsToNum('1,234.56');
+      expect(result).toEqual(expected);
+    });
   });
 
   describe('msToTime()', () => {
