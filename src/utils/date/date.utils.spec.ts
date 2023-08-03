@@ -1,4 +1,4 @@
-import { getDate, isDate } from './date.utils';
+import { getDate, isDate, toLocalTimeZone, toUTCTimeZone } from './date.utils';
 
 describe('date.utils', () => {
   describe('getDate(date)', () => {
@@ -61,4 +61,30 @@ describe('date.utils', () => {
       expect(result).toEqual(expected);
     });
   });
+
+  describe('toUTCTimeZone()', () => {
+    it('is a function', () => {
+      expect(typeof toUTCTimeZone).toEqual('function');
+    });
+
+    it('returns the given date and time in utc timezone instead of local without changing the values', () => {
+      const date = '2020-01-02T12:00:00.000-0500';
+      const expected = '2020-01-02T12:00:00.000Z';
+      const result = toUTCTimeZone(date).toISOString();
+      expect(result).toEqual(expected);
+    });
+  });
+
+  // describe('toLocalTimeZone()', () => {
+  //   it('is a function', () => {
+  //     expect(typeof toLocalTimeZone).toEqual('function');
+  //   });
+
+  //   it('returns the given date and time in the locak timezone instead of utc without changing the values', () => {
+  //     const date = '2020-01-02T12:00:00.000Z';
+  //     const expected = '2020-01-02T12:00:00.000-0500';
+  //     const result = toLocalTimeZone(date).toISOString();
+  //     expect(result).toEqual(expected);
+  //   });
+  // });
 });
