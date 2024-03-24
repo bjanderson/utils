@@ -305,6 +305,11 @@ describe('string.utils', () => {
       const result = toKabob('Kabob Case');
       expect(result).toEqual('kabob-case');
     });
+
+    it('removes multiple hyphens', () => {
+      const result = toKabob('Kabob Case - test_string---a');
+      expect(result).toEqual('kabob-case-test-string-a');
+    });
   });
 
   describe('isLowerCase(value)', () => {

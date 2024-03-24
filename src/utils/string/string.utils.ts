@@ -109,18 +109,17 @@ export function titleFromKabob(value: string): string {
 export function toKabob(value: string): string {
   const str = getString(value);
   if (isKabobCase(str)) {
-    return str;
+    return str.replace(/--*/g, '-');
   }
   if (isSnakeCase(str)) {
-    return lowerize(str).replace(/_/g, '-');
+    return lowerize(str).replace(/_/g, '-').replace(/--*/g, '-');
   }
 
   const kabob = str
+    .replace(/  */g, '-')
+    .replace(/__*/g, '-')
     .split('')
     .map((s, i) => {
-      if (/ /.test(s)) {
-        return '-';
-      }
       if (s === s.toLocaleUpperCase()) {
         if (i > 0 && /[a-z]/.test(str[i - 1])) {
           return `-${s.toLocaleLowerCase()}`;
@@ -131,7 +130,7 @@ export function toKabob(value: string): string {
       return s;
     })
     .join('');
-  return kabob;
+  return kabob.replace(/--*/g, '-');
 }
 
 export function isLowerCase(value: string): boolean {
