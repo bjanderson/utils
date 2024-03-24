@@ -129,7 +129,8 @@ export function toKabob(value: string): string {
       }
       return s;
     })
-    .join('');
+    .join('')
+    .replace(/--*/g, '-');
   return kabob.replace(/--*/g, '-');
 }
 

@@ -307,8 +307,8 @@ describe('string.utils', () => {
     });
 
     it('removes multiple hyphens', () => {
-      const result = toKabob('Kabob Case - test_string---a');
-      expect(result).toEqual('kabob-case-test-string-a');
+      const result = toKabob('Kabob Case_test-string---a - b');
+      expect(result).toEqual('kabob-case-test-string-a-b');
     });
   });
 
