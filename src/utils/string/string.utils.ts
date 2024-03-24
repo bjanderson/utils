@@ -102,3 +102,83 @@ export function titleFromKabob(value: string): string {
   });
   return title;
 }
+
+/**
+ * Convert any string to kabob-case.
+ */
+export function toKabob(value: string): string {
+  const str = getString(value);
+  if (isKabobCase(str)) {
+    return str;
+  }
+  if (isSnakeCase(str)) {
+    return lowerize(str).replace(/_/g, '-');
+  }
+
+  const kabob = str
+    .split('')
+    .map((s, i) => {
+      if (/ /.test(s)) {
+        return '-';
+      }
+      if (s === s.toLocaleUpperCase()) {
+        if (i > 0 && /[a-z]/.test(str[i - 1])) {
+          return `-${s.toLocaleLowerCase()}`;
+        }
+
+        return s.toLocaleLowerCase();
+      }
+      return s;
+    })
+    .join('');
+  return kabob;
+}
+
+export function isLowerCase(value: string): boolean {
+  return value == null || value === value.toLocaleLowerCase();
+}
+
+export function isUpperCase(value: string): boolean {
+  return value == null || value === value.toLocaleUpperCase();
+}
+
+export function isKabobCase(value: string): boolean {
+  return value == null || (isLowerCase(value) && !/_/g.test(value) && !/ /g.test(value));
+}
+
+export function isCamelCase(value: string): boolean {
+  return (
+    value == null ||
+    (/^[a-z]/.test(value.slice(0, 1)) &&
+      !/-/g.test(value) &&
+      !/ /g.test(value) &&
+      !/_/g.test(value))
+  );
+}
+
+export function isPascalCase(value: string): boolean {
+  return (
+    value == null ||
+    (/^[A-Z]/.test(value) &&
+      !isUpperCase(value) &&
+      !/-/g.test(value) &&
+      !/ /g.test(value) &&
+      !/_/g.test(value))
+  );
+}
+
+export function isSnakeCase(value: string): boolean {
+  return value == null || (isUpperCase(value) && !/-/g.test(value) && !/ /g.test(value));
+}
+
+export function isTitleCase(value: string): boolean {
+  return (
+    value == null ||
+    (/^[A-Z]/.test(value) &&
+      !isUpperCase(value) &&
+      !/-/g.test(value) &&
+      !/_/.test(value) &&
+      !/[a-z][A-Z]/g.test(value) &&
+      (!/ /.test(value) || / [A-Z]/g.test(value)))
+  );
+}

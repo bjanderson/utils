@@ -182,6 +182,7 @@
     "@typescript-eslint/no-this-alias": "warn",
     "@typescript-eslint/no-unsafe-argument": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
     "@typescript-eslint/no-unsafe-return": "off",
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-var-requires": "off",
