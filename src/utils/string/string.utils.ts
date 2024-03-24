@@ -131,7 +131,7 @@ export function toKabob(value: string): string {
     })
     .join('')
     .replace(/--*/g, '-');
-  return kabob.replace(/--*/g, '-');
+  return kabob;
 }
 
 export function isLowerCase(value: string): boolean {
