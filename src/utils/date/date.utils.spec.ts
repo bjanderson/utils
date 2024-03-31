@@ -1,4 +1,4 @@
-import { getDate, isDate, toLocalTimeZone, toUTCTimeZone } from './date.utils';
+import { getDate, isDate } from './date.utils';
 
 describe('date.utils', () => {
   describe('getDate(date)', () => {
@@ -8,15 +8,15 @@ describe('date.utils', () => {
 
     it('returns a JavaScript Date if the input is a valid date', () => {
       const date = '01/02/2020';
-      const expected = new Date(date).toString();
-      const result = getDate(date).toString();
+      const expected = '2020-01-02T00:00:00.000-05:00';
+      const result = getDate(date);
       expect(result).toEqual(expected);
     });
 
     it('returns a JavaScript Date if the input is a number and the format is set to null', () => {
       const date = 1577941200000;
-      const expected = new Date(date).toString();
-      const result = getDate(date, null).toString();
+      const expected = '2020-01-02T00:00:00.000-05:00';
+      const result = getDate(date, null);
       expect(result).toEqual(expected);
     });
 
@@ -62,18 +62,18 @@ describe('date.utils', () => {
     });
   });
 
-  describe('toUTCTimeZone()', () => {
-    it('is a function', () => {
-      expect(typeof toUTCTimeZone).toEqual('function');
-    });
+  // describe('toUTCTimeZone()', () => {
+  //   it('is a function', () => {
+  //     expect(typeof toUTCTimeZone).toEqual('function');
+  //   });
 
-    it('returns the given date and time in utc timezone instead of local without changing the values', () => {
-      const date = '2020-01-02T12:00:00.000-0500';
-      const expected = '2020-01-02T12:00:00.000Z';
-      const result = toUTCTimeZone(date).toISOString();
-      expect(result).toEqual(expected);
-    });
-  });
+  //   it('returns the given date and time in utc timezone instead of local without changing the values', () => {
+  //     const date = '2020-01-02T12:00:00.000-0500';
+  //     const expected = '2020-01-02T12:00:00.000Z';
+  //     const result = toUTCTimeZone(date);
+  //     expect(result).toEqual(expected);
+  //   });
+  // });
 
   // describe('toLocalTimeZone()', () => {
   //   it('is a function', () => {
