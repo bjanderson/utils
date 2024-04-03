@@ -6,23 +6,9 @@ describe('date.utils', () => {
       expect(typeof getDate).toEqual('function');
     });
 
-    it('returns a JavaScript Date if the input is a valid date', () => {
-      const date = '01/02/2020';
-      const expected = '2020-01-02T00:00:00.000-05:00';
-      const result = getDate(date);
-      expect(result).toEqual(expected);
-    });
-
-    it('returns a JavaScript Date if the input is a number and the format is set to null', () => {
-      const date = 1577941200000;
-      const expected = '2020-01-02T00:00:00.000-05:00';
-      const result = getDate(date, null);
-      expect(result).toEqual(expected);
-    });
-
-    it('returns an empty string if the input is not a valid date', () => {
-      const date = new Date('99/00/2020');
-      const expected: any = '';
+    it('returns the correct ISO string if the input is a valid date string', () => {
+      const date = '2020-01-02';
+      const expected = '2020-01-02T00:00:00.000Z';
       const result = getDate(date);
       expect(result).toEqual(expected);
     });

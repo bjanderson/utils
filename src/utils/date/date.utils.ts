@@ -4,10 +4,19 @@ import { getString } from '../string';
 
 /**
  * Get a date from the given input, or else get an empty string.
+ * Returns a UTC date by default.
+ * @param value should be an ISO formatted date string
  */
-export function getDate(value: any, defaultValue: any = DEFAULT_DATE): string {
-  const d = DateTime.fromJSDate(new Date(value));
-  return getString(d.isValid ? d.toISO() : DateTime.fromJSDate(defaultValue).toISO());
+export function getDate(
+  value: string,
+  options: any = { defaultValue: DEFAULT_DATE, timezone: 'UTC' }
+): string {
+  const d = DateTime.fromISO(value, { zone: options.timezone });
+  return getString(
+    d.isValid
+      ? d.toISO()
+      : DateTime.fromJSDate(options.defaultValue, { zone: options.timezone }).toISO()
+  );
 }
 
 /**
